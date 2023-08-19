@@ -9,7 +9,7 @@ export const developerInfoOS = async (
   next: NextFunction
 ): Promise<void> => {
   const allowedOS = new Set(["Windows", "MacOS", "Linux"]);
-  const preferredOS: string = req.params.preferredOS;
+  const preferredOS: string = req.body.preferredOS;
 
   if (!preferredOS || !allowedOS.has(preferredOS)) {
     throw new AppError(

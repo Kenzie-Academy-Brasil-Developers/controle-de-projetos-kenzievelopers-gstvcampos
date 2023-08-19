@@ -1,4 +1,4 @@
-CREATE TYPE "OPERATING_SYSTEM" AS ENUM ('windows', 'linux', 'macOS');
+CREATE TYPE "OPERATING_SYSTEM" AS ENUM ('Windows', 'Linux', 'MacOS');
 
 
 CREATE TABLE IF NOT EXISTS "developers" (

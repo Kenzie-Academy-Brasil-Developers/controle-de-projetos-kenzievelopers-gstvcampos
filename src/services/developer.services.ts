@@ -29,7 +29,7 @@ const retrieve = async (developerId: string): Promise<Developer> => {
       "d"."name" AS "developerName",
       "d"."email" AS "developerEmail",
       "di"."developerSince" AS "developerInfoDeveloperSince",
-      "di"."preferredOS" AS "developerInfoPreferredOS",
+      "di"."preferredOS" AS "developerInfoPreferredOS"
     FROM "developers" AS "d"
     LEFT JOIN "developerInfos" AS "di"
       ON "di"."developerId" = "d"."id"

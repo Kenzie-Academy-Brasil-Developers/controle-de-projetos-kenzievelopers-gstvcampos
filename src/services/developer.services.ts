@@ -64,7 +64,9 @@ const destroy = async (developerId: string): Promise<void> => {
   ]);
 };
 
-const createInfo = async (payload: DeveloperInfosCreate): Promise<DeveloperInfos> => {
+const createInfo = async (
+  payload: DeveloperInfosCreate
+): Promise<DeveloperInfos> => {
   const queryFormat: string = format(
     'INSERT INTO "developerInfos" (%I) VALUES (%L) RETURNING *;',
     Object.keys(payload),

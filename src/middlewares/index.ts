@@ -9,5 +9,5 @@ export {
   uniqueEmail,
   developerIdExists,
   developerIdHasInfoExists,
-  developerInfoOS
+  developerInfoOS,
 };

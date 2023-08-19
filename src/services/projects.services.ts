@@ -24,18 +24,20 @@ const retrieve = async (projectsId: string): Promise<Projects> => {
     SELECT
       "p"."id" AS "projectId",
       "p"."name" AS "projectName",
-      "p"."email" AS "projectDescription",
-      "p"."email" AS "projectRepository",
-      "p"."email" AS "projectStartDate",
-      "p"."email" AS "projectEndDate",
-      "d"."name" AS "projectDeveloperName",
+      "p"."description" AS "projectDescription",
+      "p"."repository" AS "projectRepository",
+      "p"."startDate" AS "projectStartDate",
+      "p"."endDate" AS "projectEndDate",
+      "d"."name" AS "projectDeveloperName"
     FROM "projects" AS "p"
     LEFT JOIN "developers" AS "d"
       ON "p"."developerId" = "d"."id"
-    WHERE "d"."id" = $1;
+    WHERE "p"."id" = $1;
   `;
 
   const queryResult: ProjectsResult = await client.query(query, [projectsId]);
+
+  console.log(queryResult);
 
   return queryResult.rows[0];
 };

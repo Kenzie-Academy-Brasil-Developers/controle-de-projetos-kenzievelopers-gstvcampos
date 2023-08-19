@@ -7,6 +7,11 @@ const projectsRouter: Router = Router();
 
 projectsRouter.post("", developerIdExists, projectsControllers.create);
 projectsRouter.get("/:id", projectIdExists, projectsControllers.retrieve);
-projectsRouter.patch("/:id", projectIdExists, developerIdExists, projectsControllers.partialUpdate);
+projectsRouter.patch(
+  "/:id",
+  projectIdExists,
+  developerIdExists,
+  projectsControllers.partialUpdate
+);
 
 export default projectsRouter;

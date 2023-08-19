@@ -16,7 +16,10 @@ export const developerIdHasInfoExists = async (
   );
 
   if (query.rowCount) {
-    throw new AppError("Developer with the specified ID already contains additional information.", 409);
+    throw new AppError(
+      "Developer with the specified ID already contains additional information.",
+      409
+    );
   }
 
   return next();

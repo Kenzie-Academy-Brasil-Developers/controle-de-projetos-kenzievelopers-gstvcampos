@@ -11,4 +11,10 @@ type DeveloperCreate = Omit<Developer, "id">;
 type DeveloperRead = Array<Developer>;
 type DeveloperUpdate = Partial<DeveloperCreate>;
 
-export { Developer, DeveloperCreate, DeveloperResult, DeveloperRead, DeveloperUpdate };
+export {
+  Developer,
+  DeveloperCreate,
+  DeveloperResult,
+  DeveloperRead,
+  DeveloperUpdate,
+};

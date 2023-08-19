@@ -8,9 +8,7 @@ const create = async (req: Request, res: Response): Promise<Response> => {
 };
 
 const retrieve = async (req: Request, res: Response): Promise<Response> => {
-  const developer: Developer = await developerServices.retrieve(
-    req.params.DeveloperId
-  );
+  const developer: Developer = await developerServices.retrieve(req.params.id);
 
   return res.status(200).json(developer);
 };
@@ -20,7 +18,7 @@ const partialUpdate = async (
   res: Response
 ): Promise<Response> => {
   const { body } = req;
-  const { developerId } = req.params;
+  const developerId = req.params.id;
 
   const developer: Developer = await developerServices.partialUpdate(
     developerId,
@@ -30,7 +28,7 @@ const partialUpdate = async (
 };
 
 const destroy = async (req: Request, res: Response): Promise<Response> => {
-  await developerServices.destroy(req.params.DeveloperId);
+  await developerServices.destroy(req.params.id);
   return res.status(204).json();
 };
 
@@ -39,8 +37,6 @@ const createInfo = async (req: Request, res: Response): Promise<Response> => {
     ...req.body,
     developerId: req.params.id,
   };
-
-  console.log(payload);
 
   const developerInfo: DeveloperInfos = await developerServices.createInfo(
     payload

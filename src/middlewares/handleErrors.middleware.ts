@@ -8,9 +8,9 @@ export const handleErrors = (
   next: NextFunction
 ): Response => {
   if (error instanceof AppError) {
-    return res.status(error.status).json({ error: error.message });
+    return res.status(error.status).json({ message: error.message });
   }
 
   console.error(error);
-  return res.status(500).json({ error: "Internal server error." });
+  return res.status(500).json({ message: "Internal server error." });
 };
